@@ -1,23 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import "./App.css";
+import youTube from "./apis/youTube";
+import ReactPlayer from "react-player";
+import Jumbotron from "./components/jumbotron/jumbotron";
+import Search from "./components/jumbotron/Search/Search";
 
 function App() {
+  const [video, setVideo] = useState([]);
+
+  useEffect(() => {
+    getVideo();
+  }, []);
+
+  const getVideo = async () => {
+    const response = await youTube.get("/search");
+    setVideo(response.data.items[0]);
+  };
+  console.log(video);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <Jumbotron />
+      <Search/>
+      <div className="row">
+        <div className="col-md-6">
+          <ReactPlayer
+            url={`https://www.youtube.com/watch?v=${video?.id?.videoId}`}
+            className='react-player'
+            playing
+            width='100%'
+            height='300px'
+          />
+        </div>
+        <div className="col-md-6">
+            <h1>lista</h1>
+        </div>
+      </div>
     </div>
   );
 }

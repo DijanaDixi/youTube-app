@@ -6,10 +6,19 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "asyncawait": "^3.0.0",
+    "axios": "^0.21.0",
+    "bootstrap": "^4.5.3",
+    "prop-types": "^15.7.2",
     "react": "^17.0.1",
+    "react-async-await": "^1.5.0",
     "react-dom": "^17.0.1",
+    "react-player": "^2.7.0",
     "react-scripts": "4.0.1",
-    "web-vitals": "^0.2.4"
+    "web-vitals": "^0.2.4",
+    "youtube-api-search": "0.0.5",
+    "youtube-api-v3-search": "^1.2.1",
+    "ytsearch": "^1.0.4"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -34,5 +43,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.8.2",
+    "@typescript-eslint/parser": "^4.8.2",
+    "eslint": "^7.14.0",
+    "eslint-plugin-react": "^7.21.5"
   }
 }
