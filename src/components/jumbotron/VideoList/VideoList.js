@@ -10,7 +10,7 @@ function VideoList({videos,selectedVideo}){
 
     const list=videos.map((video)=>{
         return(
-            <VideoItem video={video} selectedVideo={selectedVideo} />
+            <VideoItem video={video} selectedVideo={selectedVideo} key={video.id.videoId} />
         )
     })
     return(
