@@ -1,12 +1,11 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
-import "./App.css";
 import youTube from "./apis/youTube";
-import ReactPlayer from "react-player";
-import Jumbotron from "./components/jumbotron/jumbotron";
-import Search from "./components/jumbotron/Search/Search";
-import VideoList from "./components/jumbotron/VideoList/VideoList";
-import PreviouslyVisitedVideos from "./components/jumbotron/PreviouslyVisetedVideos/PreviouslyVisetedVideo";
+import Player from "./components/Player/Player";
+
+import Search from "./components/Search/Search";
+import VideoList from "./components/VideoList/VideoList";
+import PreviouslyVisitedVideos from "./components/PreviouslyVisetedVideos/PreviouslyVisetedVideo";
 
 function App() {
   const [video, setVideo] = useState([]);
@@ -33,33 +32,30 @@ function App() {
         q: value,
       },
     });
+    console.log(response.data.items)
     setVideo(response.data.items[0]);
     setList(response.data.items.slice(1));
   };
 
   const selectedVideo = (item) => {
+    setVideo(item);
     const state = [...session, item]
     sessionStorage.setItem("previously", JSON.stringify(state));
     getExsistingVideo();
-
-    setVideo(item);
+   
+    anotherFunction(item)
+  };
+  const anotherFunction=(item)=>{
     let filter=session.filter((v)=>v.id.videoId !== item.id.videoId).reverse()
     setPrevioslyVideos(filter)
-  };
+  }
 
   return (
     <div className="container">
-      <Jumbotron />
       <Search handleFormSubmit={handleFormSubmit} />
       <div className="row">
-        <div className="col-md-6">
-          <ReactPlayer
-            url={`https://www.youtube.com/watch?v=${video?.id?.videoId}`}
-            className="react-player"
-            playing
-            width="100%"
-            height="300px"
-          />
+        <div className="col-md-7">
+          <Player video={video}/>
           <PreviouslyVisitedVideos
             previouslyVideos={previouslyVideos}
             selectedVideo={selectedVideo}

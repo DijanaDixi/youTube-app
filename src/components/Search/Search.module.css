@@ -1,3 +1,13 @@
-input{
-    width: 80%;
+.logo{
+    margin-top: 40px;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-around;
+}
+.imgLogo{
+    height: 30px;
+    margin: 0px;
+    /* z-index: 1; */
 }
