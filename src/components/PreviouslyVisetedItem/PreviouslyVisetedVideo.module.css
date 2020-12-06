@@ -1,5 +1,43 @@
-.videoItemCard{
-    width:300px;
+.videoCard{
+    width: 60%;
+    height: 100px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: transform .2s;
+}
+.videoCard:hover{
+    transform: scale(1.05)
+}
+.image{
+    float: left;
+    width: 50%;
     height: auto;
-    margin-bottom: 5px;
+  
+}
+ .image>img{
+    width: 100%;
+	display: block;
+	height: 100%;
+	margin-top: auto;
+	margin-bottom: auto;
+}
+.about{
+    float: right;
+    width: 50%;
+   height: 100%;
+
+}
+ .about>h6{
+    margin-left: 5px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.container{
+    min-width:1200px;
+} 
+h5{
+    font-weight: 700;
+}
+hr{
+ margin-left: 0!important;
 }

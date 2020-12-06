@@ -2,6 +2,11 @@
     width: 100%;
     height: 100px;
     margin-bottom: 10px;
+    cursor: pointer;
+    transition: transform .2s;
+}
+.videoCard:hover{
+    transform: scale(1.05)
 }
 .image{
     float: left;
