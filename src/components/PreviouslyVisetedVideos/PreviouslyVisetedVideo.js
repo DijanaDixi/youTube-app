@@ -16,7 +16,7 @@ function PreviouslyVisitedVideos({ previouslyVideos, selectedVideo, videos }) {
     <>
       {videos.length > 0 ? (
         <div>
-          <h5>Previouse</h5>
+          <h5>Previous</h5>
           <hr className="w-25" />
         </div>
       ) : null}
