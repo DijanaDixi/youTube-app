@@ -1,7 +1,7 @@
-/* eslint-disable react/prop-types */
 import React from "react";
 import ReactPlayer from "react-player/lazy";
-import moment from "moment";
+import moment from "moment"; 
+import PropTypes from 'prop-types';
 import styles from "./Player.module.css";
 
 function Player({ video }) {
@@ -16,7 +16,9 @@ function Player({ video }) {
           playing
           width="100%"
           height="400px"
+          controls={true}
         />
+        {/* details */}
        <div className={styles.details}>
           <h5>{video?.snippet?.title}</h5>
           <p>{`${date}`}</p>
@@ -30,7 +32,9 @@ function Player({ video }) {
         </div>
       </>
     )
-
+   
 }
-
+Player.propTypes={
+  video:PropTypes.object
+}
 export default Player;

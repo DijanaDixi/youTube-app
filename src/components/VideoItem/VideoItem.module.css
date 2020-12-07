@@ -1,12 +1,14 @@
 .videoCard{
     width: 100%;
-    height: 100px;
+    height: 110px;
     margin-bottom: 10px;
     cursor: pointer;
-    transition: transform .2s;
+    line-height: normal;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
 }
 .videoCard:hover{
-    transform: scale(1.05)
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2)
 }
 .image{
     float: left;

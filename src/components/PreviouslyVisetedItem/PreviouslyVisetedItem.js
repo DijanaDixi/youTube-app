@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React from "react";
+import PropTypes from "prop-types";
 import styles from "./PreviouslyVisetedVideo.module.css";
 
 function PreviouslyVisetedItem({ item, selectedVideo }) {
@@ -10,12 +10,15 @@ function PreviouslyVisetedItem({ item, selectedVideo }) {
           <img src={item.snippet.thumbnails.medium.url} />
         </div>
         <div className={styles.about}>
-          <h6>{item.snippet.title.substring(0,40)}</h6>
+          <h6>{item.snippet.title.substring(0, 40)}</h6>
           <p className="mt-1 ml-1">{item?.snippet?.channelTitle} &#119136;</p>
         </div>
       </div>
     </>
   );
 }
-
+PreviouslyVisetedItem.propTypes = {
+  item: PropTypes.object,
+  selectedVideo: PropTypes.func.isRequired,
+};
 export default PreviouslyVisetedItem;

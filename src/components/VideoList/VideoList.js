@@ -1,7 +1,5 @@
-/* eslint-disable react/jsx-key */
-/* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
 import React from "react";
+import PropTypes from "prop-types";
 import VideoItem from "../VideoItem/VideoItem";
 import styles from "./VideoList.module.css";
 
@@ -27,4 +25,9 @@ function VideoList({ videos, selectedVideo }) {
     </>
   );
 }
+
+VideoList.propTypes = {
+  videos: PropTypes.array,
+  selectedVideo: PropTypes.func.isRequired,
+};
 export default VideoList;

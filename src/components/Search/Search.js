@@ -1,11 +1,10 @@
-/* eslint-disable react/prop-types */
 import React from "react";
+import PropTypes from "prop-types";
 import styles from "../Search/Search.module.css";
 
-function Search({ handleValue}) {
-
+function Search({ handleValue }) {
   const handleChange = (event) => {
-    event.preventDefault()
+    event.preventDefault();
     handleValue(event.target.value);
   };
 
@@ -20,17 +19,21 @@ function Search({ handleValue}) {
           />
         </div>
         <div className={styles.input}>
-            <input
-              className="form-control mt-2 h-25"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-              // value={value}
-              onChange={handleChange}
-            />
+          <input
+            className="form-control mt-2 h-25"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+            // value={value}
+            onChange={handleChange}
+          />
         </div>
       </div>
     </>
   );
 }
+
+Search.propTypes = {
+  handleValue: PropTypes.func,
+};
 export default Search;

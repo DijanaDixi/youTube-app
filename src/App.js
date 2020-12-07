@@ -1,7 +1,6 @@
-/* eslint-disable no-unused-vars */
 import React, { useEffect, useState, useCallback } from "react";
 import { debounce } from "lodash";
-import youTube from "./apis/youTube";
+import youTube from "./apis/youTube"; //api
 import Player from "./components/Player/Player";
 import Search from "./components/Search/Search";
 import VideoList from "./components/VideoList/VideoList";
@@ -22,29 +21,28 @@ function App() {
       params: {
         q: value,
         maxResults: 10,
+        
       },
     });
-
     setVideoPlayer(response.data.items[0]);
     setList(response.data.items.slice(1));
   };
-
   // debounce
   const delayedQuery = useCallback(debounce(handleFormSubmit, 2000), [value]);
 
   // delayed
   useEffect(() => {
+    console.log("test");
     delayedQuery();
     return delayedQuery.cancel;
   }, [value, delayedQuery]);
 
+
   const selectedVideo = (item) => {
-    // console.log(item.id.videoId)
     const historyState = [videoPlayer, ...previouslyVideos];
     setVideoPlayer(item);
-    setPrevioslyVideos(historyState);
-    const filter = [...videos].filter((v) => v.id.videoId !== item.id.videoId);
-    setList(filter);
+    const filter = [...historyState].filter((v) => v.id.videoId !== item.id.videoId);
+    setPrevioslyVideos(filter);
   };
 
   return (
@@ -67,5 +65,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
